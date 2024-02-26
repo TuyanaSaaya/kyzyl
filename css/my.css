@@ -1,0 +1,265 @@
+*, *:after, *:before {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   transition: .5s ease-in-out;
+   /* добавим плавность переходов для всех элементов страницы*/
+}
+ul {
+   list-style: none;
+}
+a {
+   text-decoration: none;
+   outline: none;
+}
+img {
+   display: block;
+   width: 100%;
+}
+
+p {
+    text-align: justify; 
+    text-indent: 30px;
+}
+body {
+   font-family: 'Open Sans', arial, sans-serif;
+   font-size: 14px;
+   line-height: 1;
+   color: #373737;
+   background: #f7f7f7;
+}
+/* добавим очистку потока для всех контейнеров, внутри которых задано обтекание дочерних элементов */
+header:after, .container:after, footer:after, .widget-posts-list li:after, #subscribe:after {
+   content: "";
+   display: table;
+   clear: both;
+}
+/* стилевой класс, который управляет шириной контейнера сетки*/
+
+
+.container {
+   margin: 0 auto;
+   width: 100%;
+   max-width: 960px;
+   padding: 0 15px;
+}
+header {
+   width: 100%;
+   background: white;
+   box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
+   padding: 15px 0;
+   margin-bottom: 30px;
+   position: relative;
+}
+
+/* меню */
+#menu {
+   float: right;
+}
+#menu li {
+   display: inline-block;
+   margin-right: 30px;
+}
+#menu a {
+   color: #111;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   font-weight: 600;
+   display: block;
+   line-height: 40px;
+}
+#menu a:hover {
+   color: #EF5A42;
+}
+#menu li:last-child {
+   margin-right: 0;
+}
+
+#menu.active {
+   max-height: 123px;
+}
+
+
+/* левый контейнер */
+.posts-list {
+   margin-bottom: 30px;
+   width: 64%;
+   float: left;
+}
+
+.post-content p {
+   line-height: 1.5;
+   padding-bottom: 1em;
+}
+.text {
+   margin-bottom: 30px;
+}
+.simvolika {
+   margin-bottom: 15px;
+}
+.simvolika a {
+   color:brown;
+   text-transform: uppercase;
+}
+
+
+.post-footer {
+   border-top: 1px solid #EBEBE3;
+   border-bottom: 1px solid #EBEBE3;
+   position: relative;
+   margin-top: 15px;
+}
+
+/* правый контейнер */
+aside {
+   width: 33%;
+   float: right;
+}
+/* блок для виджетов */
+.widget {
+   padding: 20px 15px;
+   background: white;
+   font-size: 13px;
+   margin-bottom: 30px;
+   box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
+float: none;
+
+    
+}
+.widget-title {
+   font-size: 18px;
+   padding: 10px;
+   margin-bottom: 20px;
+   text-align: center;
+   border: 2px solid #0066FF;
+   box-shadow: 3px 3px 0 0 #0066FF;
+    
+    
+
+}
+.widget-category-list li {
+   border-bottom: 1px solid #EBEBE3;
+   padding: 10px 0;
+   color: #c6c6c6;
+   font-style: italic;
+     
+    
+}
+.widget-category-list li:last-child {
+   border-bottom: none;
+    
+}
+.widget-category-list li a {
+   color: #626262;
+   margin-right: 6px;
+   font-style: normal;
+}
+.widget-category-list li a:before {
+   content: "\f105";
+   display: inline-block;
+   font-family: 'FontAwesome';
+   margin-right: 10px;
+   color: #c6c6c6;
+    
+}
+
+
+/* форма подписки */
+
+
+footer {
+   padding: 30px 0;
+   background: #3C3D41;
+   color: white;
+}
+
+
+.footer-col:last-child {
+   text-align: right;
+}
+
+@media (max-width: 768px) {
+   /* показываем кнопку для переключения верхней навигации */
+   .nav-toggle {
+      display: block;
+   }
+   header {
+      padding: 10px 0;
+   }
+   /* скрываем верхнее меню, отменяем обтекание, позиционируем его, сместив на высоту шапки сайта */
+   #menu {
+      max-height: 0;
+      background: white;
+      float: none;
+      position: absolute;
+      overflow: hidden;
+      top: 63px;
+      right: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 3;
+   }
+   /* делаем элементы списка блочными, чтобы они располагались друг под другом */
+   #menu li {
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid #EBEBE3;
+      margin-right: 0;
+   }
+   /* отменяем обтекание левой и правой колонок, устанавливаем им ширину 100%*/
+   .posts-list, aside {
+      width: 100%;
+      float: none;
+   }
+   .widget-post-title {
+      font-size: 1.5em;
+   }
+
+@media (max-width: 480px) {
+   /* отменяем обтекание для логотипа и выравниваем по центру*/
+   .logo {
+      float: none;
+      margin: 0 auto 15px;
+      display: table;
+   }
+   .logo span {
+      margin: 0 2px;
+   }
+   /* позиционируем меню на увеличившуюся высоту шапки */
+   #menu {
+      top: 118px;
+   }
+ 
+   .footer-col:last-child {
+      text-align: center;
+      margin-bottom: 0;
+   }
+<script>
+$('.nav-toggle').on('click', function(){
+  $('#menu').toggleClass('active');
+});
+</script>
+span {
+    text-align: center;
+}
+
+
+
+
+
+.post-content p {
+  text-align: right;  
+}
+
+.post-cont {
+    text-align: right;
+}
+
+
+
+
+
+
+
+
